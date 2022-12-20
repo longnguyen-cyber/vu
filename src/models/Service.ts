@@ -1,19 +1,14 @@
-import { Schema, model } from "mongoose"
-
-export default interface Service extends Document {
-  nameService: String,
-  price: Number,
-
-}
+import { Schema, model } from 'mongoose'
+import { IService } from '../config/interface'
 
 const ServiceSchema: Schema = new Schema({
   nameService: {
     type: String,
     require: true,
-    unique: true,
+    unique: true
   },
   price: {
-    type: Number,
+    type: Number
   },
   userId: {
     type: Schema.Types.ObjectId,
@@ -21,4 +16,4 @@ const ServiceSchema: Schema = new Schema({
   }
 })
 
-export const ServiceModel = model('Service', ServiceSchema)
+export const ServiceModel = model<IService>('Service', ServiceSchema)

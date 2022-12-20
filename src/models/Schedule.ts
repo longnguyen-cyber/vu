@@ -1,21 +1,22 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+import { ISchedule } from './../config/interface'
+import { Schema, model } from 'mongoose'
 
 const ScheduleSchema = new Schema({
   idCar: {
     type: String,
     require: true,
-    unique: true,
+    unique: true
   },
   dateTime: {
     type: Date,
+    default: Date.now
   },
   nameService: {
-    type: String,
+    type: String
   },
   idGasStation: {
-    type: Number,
-  },
+    type: String
+  }
 })
 
-module.exports = mongoose.model('Schedule', ScheduleSchema)
+export const ScheduleModel = model<ISchedule>('Schedule', ScheduleSchema)

@@ -6,10 +6,10 @@ const ServiceSchema = new mongoose_1.Schema({
     nameService: {
         type: String,
         require: true,
-        unique: true,
+        unique: true
     },
     price: {
-        type: Number,
+        type: Number
     },
     userId: {
         type: mongoose_1.Schema.Types.ObjectId,
